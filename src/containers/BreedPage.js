@@ -17,7 +17,8 @@ const BreedPage = ({breeds}) => {
         {
           breed.image && breed.image.url ?
             <div className="breed-header" style={{
-              background: "url('"+breed.image.url+"') no-repeat center center fixed"
+              background: "url('"+breed.image.url+"') no-repeat center center fixed",
+              backgroundSize: "cover"
             }}>
 
             </div> :
