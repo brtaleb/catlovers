@@ -1,0 +1,140 @@
+@import "colors";
+
+* {
+  margin: 0;
+  font-family: verdana, sans-serif;
+}
+
+.header {
+  background-color: $color-orange;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding-left: 40px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-item {
+    padding: 30px 40px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .nav-item:hover {
+    text-decoration: underline;
+  }
+}
+
+.cards-container {
+  padding: 0 40px 40px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.breed-card {
+  margin-top: 40px;
+  .card-info {
+    margin-top: 10px;
+    color: $color-orange;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.card-img {
+  object-fit: cover;
+  width:300px;
+  height:260px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 10px solid white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.home {
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.search-bar {
+  text-align: center;
+  input {
+    border: none;
+    background-color: $color-orange-light;
+    color: white;
+    height: 40px;
+    width: 600px;
+    border-radius: 30px;
+    padding: 0 20px;
+    margin-top: 20px;
+    outline: none;
+  }
+  input::placeholder {
+    color: $color-gray-light;
+  }
+}
+
+.breed-header {
+  height: 400px;
+  background-size: cover;
+}
+
+.breed-details {
+  height: calc(100vh - 550px);
+  background-color: $color-orange-light;
+  color: white;
+  padding: 40px;
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.favorite-btn {
+  background-color: white;
+  border: none;
+  height: 40px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 30px;
+  position: absolute;
+  top: 380px;
+  left: 40px;
+}
+
+.favorites {
+  height: calc(100vh - 90px);
+  overflow-y: auto;
+  text-align: center;
+}
+
+.clear-favorites-btn {
+  background-color: $color-orange-light;
+  color: white;
+  border: none;
+  height: 40px;
+  width: 200px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar {
+  width: 18px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-gray-light;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-orange;
+}

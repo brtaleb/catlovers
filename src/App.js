@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./containers/Home";
+import {getBreedsAction} from "./store/actions/breedsActions";
+import {connect} from "react-redux";
+import BreedPage from "./containers/BreedPage";
+import Favorites from "./containers/Favorites";
 
-function App() {
+const App = ({getBreedsAction, data}) => {
+
+  useEffect(() => {
+    getBreedsAction();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Header />
+
+        <Switch>
+          <Route path="/breed/:id">
+            <BreedPage breeds={data && data.breeds}/>
+          </Route>
+          <Route path="/favorites">
+            <Favorites breeds={data && data.breeds} />
+          </Route>
+          <Route path="/">
+            <Home breeds={data && data.breeds}/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return state.breedsStore;
+}
+
+const mapDispatchToProps = {
+  getBreedsAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
