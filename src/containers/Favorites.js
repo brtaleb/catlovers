@@ -21,9 +21,9 @@ const Favorites = ({breeds}) => {
       <div className="cards-container">
         {
           breeds
-            .filter(breed => favorites.includes(breed.id)).length > 0 ?
+            .filter(breed => favoritesFilter.includes(breed.id)).length > 0 ?
             breeds
-            .filter(breed => favorites.includes(breed.id))
+            .filter(breed => favoritesFilter.includes(breed.id))
             .map(breed => {
               return <BreedCard key={breed.id} breed={breed}/>
             }) :

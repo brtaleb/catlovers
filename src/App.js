@@ -15,7 +15,7 @@ const App = ({getBreedsAction, data}) => {
 
   useEffect(() => {
     getBreedsAction();
-  }, []);
+  }, [getBreedsAction]);
 
   return (
     <Router>
